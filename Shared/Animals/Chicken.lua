@@ -21,6 +21,8 @@ function NanosWorldCharacters.Chicken:Constructor(location, rotation, enable_ai)
 
 	self:SetMaterial(NanosWorldCharacters.Chicken.materials[math.random(#NanosWorldCharacters.Chicken.materials)])
 
+	self:SetHealth(50)
+	self:SetMaxHealth(50)
 	self:SetAirControl(0.5)
 	self:SetJumpZVelocity(300)
 	self:SetGravityScale(0.5)

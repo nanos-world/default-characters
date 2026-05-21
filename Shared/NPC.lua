@@ -185,7 +185,7 @@ BaseDefaultCharacterSimple = CharacterSimple.Inherit("BaseDefaultCharacterSimple
 if (Server) then
 	-- Base Character constructor and events
 	function BaseDefaultCharacter:Constructor(location, rotation, mesh, enable_ai)
-		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh)
+		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh, CollisionType.Auto, true, nil, nil, nil, true)
 
 		if (enable_ai) then
 			self:SetAIEnabled(true)
@@ -221,7 +221,7 @@ if (Server) then
 
 	-- Base CharacterSimple constructor and events
 	function BaseDefaultCharacterSimple:Constructor(location, rotation, mesh, animation_blueprint, enable_ai)
-		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh, animation_blueprint)
+		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh, animation_blueprint, CollisionType.Auto, true, true)
 
 		if (enable_ai) then
 			self:SetAIEnabled(true)

@@ -8,7 +8,7 @@ if (Client) then
 			label = "auto walk",
 			type = "checkbox",
 			callback = function(value)
-				Sandbox.ContextMenu.selected_entity:CallRemoteEvent("SetAutoWalk", value)
+				Sandbox.ContextMenu.selected_entity:CallRemoteEvent("SetAutoWalk", Reliability.Reliable, value)
 			end,
 			value = function()
 				return Sandbox.ContextMenu.selected_entity:GetValue("AutoWalk")
@@ -18,7 +18,7 @@ if (Client) then
 			label = "run when damaged",
 			type = "checkbox",
 			callback = function(value)
-				Sandbox.ContextMenu.selected_entity:CallRemoteEvent("SetRunWhenDamaged", value)
+				Sandbox.ContextMenu.selected_entity:CallRemoteEvent("SetRunWhenDamaged", Reliability.Reliable, value)
 			end,
 			value = function()
 				return Sandbox.ContextMenu.selected_entity:GetValue("RunWhenDamaged")

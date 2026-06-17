@@ -40,5 +40,5 @@ function NanosWorldCharacters.StackOBot:OnDeath()
 	self:SetMood(15)
 
 	-- Plays "death" sound
-	self:BroadcastRemoteEvent("PlaySound", "nanos-world::A_Robot_Shutdown")
+	self:BroadcastRemoteEvent("PlaySound", Reliability.Reliable, "nanos-world::A_Robot_Shutdown")
 end

@@ -29,6 +29,9 @@ function NanosWorldCharacters.StackOBot:Constructor(location, rotation, enable_a
 	self:SetMood(math.random(0, 14))
 
 	self:SetMaterialColorParameter("Tint", Color.RandomPalette())
+
+	-- Disables crouching since we don't have animations
+	self:SetCanCrouch(false)
 end
 
 function NanosWorldCharacters.StackOBot:SetMood(value)

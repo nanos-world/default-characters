@@ -15,6 +15,7 @@ They all show up automatically in the [Sandbox](https://github.com/nanos-world/n
 | `MannequinFemale` | Mannequin Female | Character |
 | `ClassicMale` | Classic Male | Character |
 | `PostApocalyptic` | Post Apocalyptic | Character |
+| `HumanSkeleton` | Human Skeleton | Character |
 | `AdventureMaleA` | Adventure Male A | Character |
 | `AdventureMaleB` | Adventure Male B | Character |
 | `AdventureMaleC` | Adventure Male C | Character |

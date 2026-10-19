@@ -20,6 +20,7 @@ Package.Require("Humanoids/AdventureMaleB.lua")
 Package.Require("Humanoids/AdventureMaleC.lua")
 Package.Require("Humanoids/AdventureFemaleA.lua")
 Package.Require("Humanoids/AdventureFemaleB.lua")
+Package.Require("Humanoids/HumanSkeleton.lua")
 
 -- CharacterSimple
 Package.Require("Animals/Chicken.lua")

@@ -187,6 +187,9 @@ if (Server) then
 	function BaseDefaultCharacter:Constructor(location, rotation, mesh, enable_ai)
 		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh, CollisionType.Auto, true, nil, nil, nil, SpawnMode.AfterConstructor)
 
+		-- Capsule radius of every humanoid. Height stays automatic, from the mesh
+		self:SetCapsuleSize(42)
+
 		if (enable_ai) then
 			self:SetAIEnabled(true)
 		end

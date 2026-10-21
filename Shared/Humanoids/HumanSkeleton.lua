@@ -32,6 +32,7 @@ function NanosWorldCharacters.HumanSkeleton:Constructor(location, rotation, enab
 
 	-- Bones rattling instead of a voice
 	self:SetDeathSound("nanos-world::A_Skeleton_Falling")
+	self:SetPainSound(nil)
 end
 
 if (Client) then
@@ -39,7 +40,8 @@ if (Client) then
 	NanosWorldCharacters.HumanSkeleton.Subscribe("Death", function(self)
 
 		-- TODO only if close enough?
-		self:SetVisibility(false)
+		-- Hides the pelvis (and all its children) instead of SetVisibility, so the ragdoll keeps refreshing its bones and the camera doesn't jitter
+		self:HideBone("pelvis")
 
 		local velocity = self:GetVelocity()
 		local center = self:GetSocketTransform("spine_01").Location
@@ -50,7 +52,7 @@ if (Client) then
 			local location = transform.Location + transform.Rotation:RotateVector(death_bone.location * transform.Scale)
 			local rotation = (transform.Rotation:Quaternion() * death_bone.rotation:Quaternion()):Rotator()
 
-			local prop = Prop(location, rotation, death_bone.mesh, CollisionType.IgnoreOnlyPawn, true, GrabMode.Disabled, CCDMode.Disabled, SpawnMode.Manual)
+			local prop = Prop(location, rotation, death_bone.mesh, CollisionType.StaticOnly, true, GrabMode.Disabled, CCDMode.Disabled, SpawnMode.Manual)
 			prop:SetScale(transform.Scale)
 			prop:SetLifeSpan(10)
 			prop:FinishSpawn()
@@ -63,6 +65,6 @@ if (Client) then
 
 	-- Shows it again if a Player respawns it
 	NanosWorldCharacters.HumanSkeleton.Subscribe("Respawn", function(self)
-		self:SetVisibility(true)
+		self:UnHideBone("pelvis")
 	end)
 end

@@ -106,8 +106,21 @@ if (Server) then
 		self:MoveTo(random_location, 250)
 	end
 
+	-- Plays a sound on every client, attached to this NPC
+	function NPCBase:PlayVoice(sound)
+		if (not sound) then return end
+
+		self:BroadcastRemoteEvent("PlaySound", Reliability.Unreliable, sound)
+	end
+
 	-- Run away when taking damage
 	function NPCBase:__OnTakeDamage(damage, bone, type, from_direction, instigator, causer)
+		-- Cries out at most once a second, the killing blow plays the death sound instead
+		if (not self:IsDead() and damage > 0 and damage < self:GetHealth() and Server.GetTime() - (self.last_pain_sound or 0) > 1000) then
+			self.last_pain_sound = Server.GetTime()
+			self:PlayVoice(self.pain_sound or self.random_sound)
+		end
+
 		-- Only run if not dead and no player possessing
 		if (self:IsDead() or self:GetPlayer() ~= nil) then return end
 
@@ -131,6 +144,8 @@ if (Server) then
 
 	-- After dying, destroys the Character after 10 seconds
 	function NPCBase:__OnDeath(...)
+		self:PlayVoice(self.death_sound or self.pain_sound or self.random_sound)
+
 		-- Calls inherited methods
 		if (self.OnDeath) then
 			self:OnDeath(...)

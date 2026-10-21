@@ -22,6 +22,22 @@ They all show up automatically in the [Sandbox](https://github.com/nanos-world/n
 | `AdventureFemaleA` | Adventure Female A | Character |
 | `AdventureFemaleB` | Adventure Female B | Character |
 | `Chicken` | Chicken | CharacterSimple |
+| `Cow` | Cow | CharacterSimple |
+| `Sheep` | Sheep | CharacterSimple |
+| `Pig` | Pig | CharacterSimple |
+| `Goat` | Goat | CharacterSimple |
+| `Crocodile` | Crocodile | CharacterSimple |
+| `Elephant` | Elephant | CharacterSimple |
+| `Hippopotamus` | Hippopotamus | CharacterSimple |
+| `Lion` | Lion | CharacterSimple |
+| `Lioness` | Lioness | CharacterSimple |
+| `Rhinoceros` | Rhinoceros | CharacterSimple |
+| `Zebra` | Zebra | CharacterSimple |
+| `Crow` | Crow | CharacterSimple |
+| `DeerDoe` | Deer (Doe) | CharacterSimple |
+| `DeerStag` | Deer (Stag) | CharacterSimple |
+| `Fox` | Fox | CharacterSimple |
+| `Wolf` | Wolf | CharacterSimple |
 | `StackOBot` | Stack-O-Bot | CharacterSimple |
 
 

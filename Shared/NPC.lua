@@ -241,6 +241,9 @@ if (Server) then
 	function BaseDefaultCharacterSimple:Constructor(location, rotation, mesh, animation_blueprint, enable_ai)
 		self.Super:Constructor(location or Vector(), rotation or Rotator(0, math.random(360), 0), mesh, animation_blueprint, CollisionType.Auto, true, SpawnMode.AfterConstructor)
 
+		-- Animals brake to a stop at the end of their AI moves instead of halting in one frame
+		self:SetAIStopWithBraking(true)
+
 		if (enable_ai) then
 			self:SetAIEnabled(true)
 		end
